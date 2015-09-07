@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Synerzip-TestAutomation-SanitySuite" duration-ms="14233" started-at="2015-09-07T15:17:02Z" finished-at="2015-09-07T15:17:16Z">
+    <groups>
+    </groups>
+    <test name="Test Suite 1" duration-ms="14213" started-at="2015-09-07T15:17:02Z" finished-at="2015-09-07T15:17:16Z">
+      <class name="sanitySuite.TestCase_1_GoogleSearch">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:sanitySuite.TestCase_1_GoogleSearch@6a5fc7f7]" name="beforeClass" is-config="true" duration-ms="12151" started-at="2015-09-07T20:47:02Z" finished-at="2015-09-07T20:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="open_url()[pri:0, instance:sanitySuite.TestCase_1_GoogleSearch@6a5fc7f7]" name="open_url" duration-ms="1769" started-at="2015-09-07T20:47:14Z" description="Open Google Search URL" finished-at="2015-09-07T20:47:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- open_url -->
+        <test-method status="PASS" signature="click_first_search_option()[pri:0, instance:sanitySuite.TestCase_1_GoogleSearch@6a5fc7f7]" name="click_first_search_option" duration-ms="1" started-at="2015-09-07T20:47:16Z" description="Click on first search option" finished-at="2015-09-07T20:47:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- click_first_search_option -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:sanitySuite.TestCase_1_GoogleSearch@6a5fc7f7]" name="afterClass" is-config="true" duration-ms="274" started-at="2015-09-07T20:47:16Z" finished-at="2015-09-07T20:47:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- sanitySuite.TestCase_1_GoogleSearch -->
+    </test> <!-- Test Suite 1 -->
+    <test name="Test Suite 2" duration-ms="0" started-at="2015-09-07T15:17:16Z" finished-at="2015-09-07T15:17:16Z">
+    </test> <!-- Test Suite 2 -->
+  </suite> <!-- Synerzip-TestAutomation-SanitySuite -->
+</testng-results>

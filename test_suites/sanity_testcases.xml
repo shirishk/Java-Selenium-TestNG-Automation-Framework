@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Synerzip-TestAutomation-SanitySuite" verbose="1" parallel="false">
+
+  <test name="Test Suite 1" preserve-order="true" verbose="2" >
+    <classes>
+           <class name="sanitySuite.TestCase_1_GoogleSearch" />
+    </classes>
+  </test>
+  
+ <test name="Test Suite 2" preserve-order="true" verbose="2" >
+    <classes>
+           <class name="sanitySuite.TestCase_2_GoogleSearch" />
+    </classes>
+  </test>
+  
+   
+</suite>
