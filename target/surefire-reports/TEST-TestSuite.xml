@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="1.768" tests="2" errors="0" skipped="0" failures="0">
+<testsuite name="TestSuite" time="1.576" tests="2" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_31\jre\bin"/>
@@ -42,7 +42,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_31\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Plocal"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,6 +61,37 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="open_url" classname="sanitySuite.TestCase_1_GoogleSearch" time="1.766"/>
-  <testcase name="click_first_search_option" classname="sanitySuite.TestCase_1_GoogleSearch" time="0.002"/>
+  <testcase name="open_url" classname="sanitySuite.TestCase_1_GoogleSearch" time="1.575">
+    <failure type="java.lang.NullPointerException:">java.lang.NullPointerException: null
+	at sanitySuite.TestCase_1_GoogleSearch.open_url(TestCase_1_GoogleSearch.java:24)
+</failure>
+    <system-out><![CDATA[log4j: reset attribute= "false".
+log4j: Threshold ="null".
+log4j: Level value for root is  [INFO].
+log4j: root level set to INFO
+log4j: Class name: [org.apache.log4j.ConsoleAppender]
+log4j: Parsing layout of class: "org.apache.log4j.PatternLayout"
+log4j: Setting property [conversionPattern] to [%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n].
+log4j: Adding appender named [console] to category [root].
+log4j: Class name: [org.apache.log4j.RollingFileAppender]
+log4j: Setting property [append] to [true].
+log4j: Setting property [maxFileSize] to [10MB].
+log4j: Setting property [maxBackupIndex] to [10].
+log4j: Setting property [file] to [./log/Automation_Execution.log].
+log4j: Parsing layout of class: "org.apache.log4j.PatternLayout"
+log4j: Setting property [conversionPattern] to [%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n].
+log4j: setFile called: ./log/Automation_Execution.log, true
+log4j: setFile ended
+log4j: Adding appender named [file] to category [root].
+log4j: Retreiving an instance of org.apache.log4j.Logger.
+log4j: Setting [SynerzipTestAutomation] additivity to [true].
+log4j: Level value for SynerzipTestAutomation is  [info].
+log4j: SynerzipTestAutomation level set to INFO
+2015-09-08 19:01:42 INFO  TestCase_1_GoogleSearch:22 - Open Google Search URL
+]]></system-out>
+    <system-err><![CDATA[log4j:WARN Continuable parsing error 44 and column 23
+log4j:WARN The content of element type "log4j:configuration" must match "(renderer*,throwableRenderer?,appender*,plugin*,(category|logger)*,root?,(categoryFactory|loggerFactory)?)".
+]]></system-err>
+  </testcase>
+  <testcase name="click_first_search_option" classname="sanitySuite.TestCase_1_GoogleSearch" time="0.001"/>
 </testsuite>

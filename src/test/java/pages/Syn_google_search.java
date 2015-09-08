@@ -48,6 +48,13 @@ public class Syn_google_search extends TestBase {
 		
 	}
 	
+	public String get_first_option(){
+		
+		log.info("Select first option displayed by google search");
+		return searchFirstOption.getText();
+		
+	}
+	
 	public void select_first_option(){
 		
 		log.info("Select first option displayed by google search");
@@ -63,7 +70,6 @@ public class Syn_google_search extends TestBase {
 	public void search_by_first_option(String text_to_search) {
 
 		this.enter_text(text_to_search);
-		this.select_first_option();
-
+		
 	}
 }
