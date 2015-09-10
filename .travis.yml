@@ -1,2 +1,2 @@
 language: java
-mvn clean test -Pdev
+script: mvn clean test -Pdev
