@@ -1,2 +1,6 @@
-2015-09-08 19:01:42 INFO  TestCase_1_GoogleSearch:22 - Open Google Search URL
-2015-09-08 19:01:44 INFO  TestCase_1_GoogleSearch:31 - Click on first search option
+2015-09-10 17:00:21 INFO  TestCase_1_GoogleSearch:23 - Open Google Search URL
+2015-09-10 17:00:22 INFO  TestCase_1_GoogleSearch:40 - Create web elements
+2015-09-10 17:00:22 INFO  TestCase_1_GoogleSearch:46 - Enter text to search: testing environment
+2015-09-10 17:00:23 INFO  TestCase_1_GoogleSearch:53 - Select first option displayed by google search
+2015-09-10 17:00:23 INFO  TestCase_1_GoogleSearch:35 - Click on first search option
+2015-09-10 17:00:23 INFO  TestCase_1_GoogleSearch:60 - Select first option displayed by google search

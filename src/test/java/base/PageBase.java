@@ -8,7 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class PageBase {
 
-	/** The driver. */
+	/**
+	 * The Driver.
+	 */
 	protected WebDriver driver = null;
 
 
@@ -18,6 +20,9 @@ public abstract class PageBase {
 	}
 
 	
+	/**
+	 * Wait
+	 */
 	public static void wait(int timeInSeconds) {
 		try {
 			Thread.sleep(timeInSeconds * 1000);
@@ -27,6 +32,9 @@ public abstract class PageBase {
 	}
 
 	
+	/**
+	 * Sample action code
+	 */
 	public void pressEnter() {
 		try {
 			Thread.sleep(5000l);

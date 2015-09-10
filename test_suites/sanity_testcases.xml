@@ -8,11 +8,11 @@
     </classes>
   </test>
   
- <test name="Test Suite 2" preserve-order="true" verbose="2" >
+ <!-- test name="Test Suite 2" preserve-order="true" verbose="2" >
     <classes>
            <class name="sanitySuite.TestCase_2_GoogleSearch" />
     </classes>
-  </test>
+  </test-->
   
    
 </suite>

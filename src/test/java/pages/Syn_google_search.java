@@ -20,7 +20,7 @@ public class Syn_google_search extends TestBase {
 
 	WebDriver driver;
 	// Web Element for Google Search Box
-	@FindBy(id = "gs_htif0")
+	@FindBy(name = "q")
 	WebElement searchBox;
 	
 	// Web Element for Google Search first option
@@ -70,6 +70,12 @@ public class Syn_google_search extends TestBase {
 	public void search_by_first_option(String text_to_search) {
 
 		this.enter_text(text_to_search);
+		
+	}
+	
+	public void click_on_first_search_option () {
+
+		this.select_first_option();
 		
 	}
 }
