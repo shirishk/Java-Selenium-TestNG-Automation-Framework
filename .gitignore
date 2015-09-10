@@ -1,0 +1,4 @@
+log/*.log
+log
+target/*
+target
