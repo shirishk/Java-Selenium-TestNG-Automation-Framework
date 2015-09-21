@@ -1,5 +1,7 @@
 Introduction: [![Build Status](https://travis-ci.org/shirishk/synerzip-selenium-framework.svg?branch=master)](https://travis-ci.org/shirishk/synerzip-selenium-framework)
 ---------------
+
+[![Join the chat at https://gitter.im/shirishk/synerzip-selenium-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/shirishk/synerzip-selenium-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 This Test Automation Framework is created using Java + Selenium Web Driver + TestNG. Which can be used across different web based applications.
 In this approach, the endeavor is to build a lot of applications independent reusable keyword components so that they can directly used for another web application without spending any extra effort. 
 With this framework in place, whenever we need to automate a web based application, we would not need to start from scratch, but use the application independent keyword components to the extent possible and create application specific components for the specific needs.
@@ -36,6 +38,6 @@ Screenshot:
 
 Reporting:
 ---------------
-*  The framework produce ‘index.html‘ report. It resides in the same 'target\surefire-reports' folder. This reports gives the link to all the different component of the TestNG reports like Groups & Reporter Output. On clicking these will display detailed descriptions of execution.
-*  You can find ‘emailable-report.html‘ from target\surefire-reports to email the test reports. As this is a html report you can open it with browser.
+*  The framework produce ï¿½index.htmlï¿½ report. It resides in the same 'target\surefire-reports' folder. This reports gives the link to all the different component of the TestNG reports like Groups & Reporter Output. On clicking these will display detailed descriptions of execution.
+*  You can find ï¿½emailable-report.htmlï¿½ from target\surefire-reports to email the test reports. As this is a html report you can open it with browser.
 
