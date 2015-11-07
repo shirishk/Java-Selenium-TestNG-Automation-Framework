@@ -6,3 +6,4 @@ screenshot
 screenshot/*
 .idea/*
 *.iml
+test-output
