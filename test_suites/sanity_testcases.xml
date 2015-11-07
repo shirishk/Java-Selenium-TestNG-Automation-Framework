@@ -2,9 +2,15 @@
   
 <suite name="Synerzip-TestAutomation-SanitySuite" verbose="1" parallel="false">
 
-  <test name="Test Suite 1" preserve-order="true" verbose="2" >
+  <test name="Test Case 2 sign up" preserve-order="true" verbose="2" >
     <classes>
-           <class name="sanitySuite.TestCase_1_GoogleSearch" />
+           <class name="sanitySuite.TestCase_2" />
+    </classes>
+  </test>
+  
+  <test name="Test Case 3 sign in" preserve-order="true" verbose="2" >
+    <classes>
+           <class name="sanitySuite.TestCase_3_sign_in" />
     </classes>
   </test>
   

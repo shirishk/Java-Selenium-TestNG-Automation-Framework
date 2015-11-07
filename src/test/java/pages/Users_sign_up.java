@@ -83,17 +83,14 @@ public class Users_sign_up extends TestBase {
 	 * @param 
 	 *******************************************************************************************/
 
-	public void Login(String emailid_text, String pwd_text, String pwdConfirmation_text) {
+	public void Register_New_User(String emailid_text, String pwd_text) {
 
 		this.enter_email(emailid_text);
 		this.enter_password(pwd_text);
-		this.enter_password(pwdConfirmation_text);
-
-	}
-	
-	public void click_on_sign_up_button() {
+		this.enter_password_confirmation(pwd_text);
 
 		this.Click_signup();
-
 	}
+	
+	
 }

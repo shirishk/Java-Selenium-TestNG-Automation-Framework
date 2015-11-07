@@ -76,11 +76,8 @@ public class Users_sign_in extends TestBase {
 		this.enter_email(emailid_text);
 		this.enter_password(pwd_text);
 
+		this.Click_signin();
 	}
 	
-	public void click_on_sign_in_button() {
-
-		this.Click_signin();
-
-	}
+	
 }
