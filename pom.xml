@@ -358,6 +358,12 @@
   		<version>6.8.21</version>
   	</dependency>
   </dependencies>
+  <dependency>
+	<groupId>com.github.detro</groupId>
+	<artifactId>phantomjsdriver</artifactId>
+	<version>1.2.0</version>
+</dependency>
+
   
   <properties>
   
