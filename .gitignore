@@ -2,3 +2,6 @@ log/*.log
 log
 target/*
 target
+screenshot
+screenshot/*
+test-output

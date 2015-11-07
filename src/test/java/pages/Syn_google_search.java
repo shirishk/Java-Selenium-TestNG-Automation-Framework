@@ -8,11 +8,15 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import base.TestBase;
+
+import base.PageBase;
 
 
-public class Syn_google_search extends TestBase {
+public class Syn_google_search extends PageBase {
+
+	public Syn_google_search(WebDriver driver) {
+		super(driver);
+	}
 
 	/*******************************************************************************************
 	 * All WebElements are identified by @FindBy annotation
@@ -32,14 +36,6 @@ public class Syn_google_search extends TestBase {
 	 * @return 
 	 *******************************************************************************************/
 
-	public Syn_google_search(WebDriver driver) {
-
-		this.driver = driver;
-		//This initElements method will create all WebElements
-		PageFactory.initElements(driver, this);
-		log.info("Create web elements");
-
-	}
 	
 	public void enter_text(String Search_text){
 		
@@ -49,14 +45,12 @@ public class Syn_google_search extends TestBase {
 	}
 	
 	public String get_first_option(){
-		
 		log.info("Select first option displayed by google search");
 		return searchFirstOption.getText();
 		
 	}
 	
 	public void select_first_option(){
-		
 		log.info("Select first option displayed by google search");
 		searchFirstOption.click();
 		
