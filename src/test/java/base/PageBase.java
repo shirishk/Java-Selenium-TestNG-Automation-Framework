@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.apache.log4j.Logger;
 
 
 public abstract class PageBase {
@@ -12,6 +13,7 @@ public abstract class PageBase {
 	 * The Driver.
 	 */
 	protected WebDriver driver = null;
+	public Logger log = TestBase.log;
 
 
 	public PageBase(WebDriver driver) {

@@ -1,423 +1,398 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.synerzip.web-test-framework</groupId>
-  <artifactId>MyWebApp</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>WebTestFramework</name>
-  <description>Web testing framework using Java + Selenium Web driver + TestNG ...created by Shirish Kawatkar</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.synerzip.web-test-framework</groupId>
+	<artifactId>MyWebApp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>WebTestFramework</name>
+	<description>Web testing framework using Java + Selenium Web driver + TestNG ...created by Shirish Kawatkar</description>
 
-   <profiles>
-  
-	  <!-- ################ Development Environment [dev]################ -->
-	   <profile>
-		<id>dev</id>
-		<build>
-		  <plugins>
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.6.1</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}</directory>
-							<includes>
-								<include>log/*.log</include>
-								<include>target/**/*</include>
-							 </includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-				   <execution>
-					  <phase>process-resources</phase>
-					  <goals>
-						 <goal>run</goal>
-					  </goals>
-					  <configuration>
-					  <target>
-						 <echo>Using env.dev.properties</echo>
-						 <delete file="${project.basedir}\config\env.properties"/>
-						 <copy file="${project.basedir}\config\env.dev.properties"
-							 tofile="${project.basedir}\config\env.properties"/>
-					   </target>
-					  </configuration>
-				   </execution>
-				</executions>
-			 </plugin>      
-			<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<version>2.18.1</version>
-			<configuration>
-			  <environmentVariables>
-				 <maven.project.basedir>${project.basedir}</maven.project.basedir>
-			  </environmentVariables>
-			  <!-- Suite file injection parameter from command line -->
-			  <suiteXmlFiles>
-				<suiteXmlFile>${suiteFile}</suiteXmlFile>
-			  </suiteXmlFiles>
-			</configuration>
-		  </plugin>
-		 </plugins>
-	  </build>
-	  </profile>
- 
- <!-- ################ Local Environment [local]################ -->
-   <profile>
-    <id>local</id>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-clean-plugin</artifactId>
-            <version>2.6.1</version>
-            <configuration>
-                <filesets>
-                    <fileset>
-                        <directory>${basedir}</directory>
-                        <includes>
-                            <include>log/*.log</include>
-                            <include>target/**/*</include>
-                         </includes>
-                        <followSymlinks>false</followSymlinks>
-                    </fileset>
-                </filesets>
-            </configuration>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-               <execution>
-                  <phase>process-resources</phase>
-                  <goals>
-                     <goal>run</goal>
-                  </goals>
-                  <configuration>
-                  <target>
-                     <echo>Using env.local.properties</echo>
-                     <delete file="${project.basedir}\config\env.properties"/>
-                     <copy file="${project.basedir}\config\env.local.properties"
-                         tofile="${project.basedir}\config\env.properties"/>
-                   </target>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>      
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <environmentVariables>
-             <maven.project.basedir>${project.basedir}</maven.project.basedir>
-          </environmentVariables>
-          <!-- Suite file injection parameter from command line -->
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteFile}</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
-     </plugins>
-  </build>
-  </profile>
+	<profiles>
 
-<!-- ################ Staging Environment [stage]################ --> 
-   <profile>
-    <id>stage</id>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-clean-plugin</artifactId>
-            <version>2.6.1</version>
-            <configuration>
-                <filesets>
-                    <fileset>
-                        <directory>${basedir}</directory>
-                        <includes>
-                            <include>log/*.log</include>
-                            <include>target/**/*</include>
-                         </includes>
-                        <followSymlinks>false</followSymlinks>
-                    </fileset>
-                </filesets>
-            </configuration>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-               <execution>
-                  <phase>process-resources</phase>
-                  <goals>
-                     <goal>run</goal>
-                  </goals>
-                  <configuration>
-                  <target>
-                     <echo>Using env.stage.properties</echo>
-                     <delete file="${project.basedir}\config\env.properties"/>
-                     <copy file="${project.basedir}\config\env.stage.properties"
-                         tofile="${project.basedir}\config\env.properties"/>
-                   </target>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>      
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <environmentVariables>
-             <maven.project.basedir>${project.basedir}</maven.project.basedir>
-          </environmentVariables>
-          <!-- Suite file injection parameter from command line -->
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteFile}</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
-     </plugins>
-  </build>
-  </profile>
- 
-<!-- ################ Testing Environment [test]################ --> 
-   <profile>
-    <id>test</id>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-clean-plugin</artifactId>
-            <version>2.6.1</version>
-            <configuration>
-                <filesets>
-                    <fileset>
-                        <directory>${basedir}</directory>
-                        <includes>
-                            <include>log/*.log</include>
-                            <include>target/**/*</include>
-                         </includes>
-                        <followSymlinks>false</followSymlinks>
-                    </fileset>
-                </filesets>
-            </configuration>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-               <execution>
-                  <phase>process-resources</phase>
-                  <goals>
-                     <goal>run</goal>
-                  </goals>
-                  <configuration>
-                  <target>
-                     <echo>Using env.test.properties</echo>
-                     <delete file="${project.basedir}\config\env.properties"/>
-                     <copy file="${project.basedir}\config\env.test.properties"
-                         tofile="${project.basedir}\config\env.properties"/>
-                   </target>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>      
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <environmentVariables>
-             <maven.project.basedir>${project.basedir}</maven.project.basedir>
-          </environmentVariables>
-          <!-- Suite file injection parameter from command line -->
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteFile}</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
-     </plugins>
-  </build>
-  </profile>
- 
- <!-- ################ Production Environment [prod]################ -->
-   <profile>
-    <id>prod</id>
-     <activation>
-       <property>
-         <name>env</name>
-         <value>prod</value>
-       </property>
-      </activation>
-      <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-clean-plugin</artifactId>
-            <version>2.6.1</version>
-            <configuration>
-                <filesets>
-                    <fileset>
-                        <directory>${basedir}</directory>
-                        <includes>
-                            <include>log/*.log</include>
-                            <include>target/**/*</include>
-                         </includes>
-                        <followSymlinks>false</followSymlinks>
-                    </fileset>
-                </filesets>
-            </configuration>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-               <execution>
-                  <phase>process-resources</phase>
-                  <goals>
-                     <goal>run</goal>
-                  </goals>
-                  <configuration>
-                  <tasks>
-                     <echo>Using env.prod.properties</echo>
-                     <delete file="${project.basedir}\config\env.properties"/>
-                     <copy file="${project.basedir}\config\env.prod.properties"
-                         tofile="${project.basedir}\config\env.properties"/>
-                   </tasks>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>      
-        <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <environmentVariables>
-             <maven.project.basedir>${project.basedir}</maven.project.basedir>
-          </environmentVariables>
-          <!-- Suite file injection parameter from command line -->
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteFile}</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
-     </plugins>
-  </build>
-  </profile>
- 
- </profiles>
- 
-  <dependencies>
-  	<dependency>
-  		<groupId>org.seleniumhq.selenium</groupId>
-  		<artifactId>selenium-firefox-driver</artifactId>
-  		<version>2.44.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>log4j</groupId>
-  		<artifactId>log4j</artifactId>
-  		<version>1.2.17</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.seleniumhq.selenium</groupId>
-  		<artifactId>selenium-ie-driver</artifactId>
-  		<version>2.44.0</version>
-  	</dependency>
-  	<dependency>
-		<groupId>com.github.detro.ghostdriver</groupId>
-		<artifactId>phantomjsdriver</artifactId>
-		<version>1.1.0</version>
-		<scope>test</scope>
-	</dependency>
-  	<dependency>
-  		<groupId>org.seleniumhq.selenium</groupId>
-  		<artifactId>selenium-api</artifactId>
-  		<version>2.44.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>net.sourceforge.saxon</groupId>
-  		<artifactId>saxon</artifactId>
-  		<version>9.1.0.8</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>xalan</groupId>
-  		<artifactId>xalan</artifactId>
-  		<version>2.7.1</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.seleniumhq.selenium</groupId>
-  		<artifactId>selenium-java</artifactId>
-  		<version>2.44.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.github.detro</groupId>
-  		<artifactId>phantomjsdriver</artifactId>
-  		<version>1.2.0</version>
-  	</dependency>
-   	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.10</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>xml-apis</groupId>
-  		<artifactId>xml-apis</artifactId>
-  		<version>1.4.01</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.testng</groupId>
-  		<artifactId>testng</artifactId>
-  		<version>6.8.21</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.seleniumhq.selenium</groupId>
-  		<artifactId>selenium-chrome-driver</artifactId>
-  		<version>2.44.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>net.sourceforge.javacsv</groupId>
-  		<artifactId>javacsv</artifactId>
-  		<version>2.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>mysql</groupId>
-  		<artifactId>mysql-connector-java</artifactId>
-  		<version>5.1.6</version>
-  	</dependency>
-  </dependencies>
-  
-  <properties>
-  
-  	<src.dir>src/main/java</src.dir>
-  
-    <!-- Maven Compiler -->  
-  	<maven.compiler.source>1.5</maven.compiler.source>
-  	<maven.compiler.target>1.5</maven.compiler.target>
-  	
-  	 <!-- Default suites -->
-    <sanitySuiteFile>${project.basedir}/test_suites/sanity_testcases.xml</sanitySuiteFile>
-	<regressionSuiteFile>${project.basedir}/test_suites/regression_testcases.xml</regressionSuiteFile>
-	
-    <!-- Default suite files if not being specified from mvn command line -->
-    <defaultSuiteFiles>${sanitySuiteFile}</defaultSuiteFiles>
-    <suiteFile>${defaultSuiteFiles}</suiteFile>
+		<!-- ################ Development Environment [dev]################ -->
+		<profile>
+			<id>dev</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.6.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>log/*.log</include>
+										<include>target/**/*</include>
+										<include>screenshot/**/*</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<echo>Using env.dev.properties</echo>
+										<delete file="${project.basedir}\config\env.properties" />
+										<copy file="${project.basedir}\config\env.dev.properties"
+											tofile="${project.basedir}\config\env.properties" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<environmentVariables>
+								<maven.project.basedir>${project.basedir}</maven.project.basedir>
+							</environmentVariables>
+							<!-- Suite file injection parameter from command line -->
+							<suiteXmlFiles>
+								<suiteXmlFile>${suiteFile}</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
-     
-  </properties>
-  
- 
+		<!-- ################ Local Environment [local]################ -->
+		<profile>
+			<id>local</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.6.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>log/*.log</include>
+										<include>target/**/*</include>
+										<include>screenshot/**/*</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<echo>Using env.local.properties</echo>
+										<delete file="${project.basedir}\config\env.properties" />
+										<copy file="${project.basedir}\config\env.local.properties"
+											tofile="${project.basedir}\config\env.properties" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<environmentVariables>
+								<maven.project.basedir>${project.basedir}</maven.project.basedir>
+							</environmentVariables>
+							<!-- Suite file injection parameter from command line -->
+							<suiteXmlFiles>
+								<suiteXmlFile>${suiteFile}</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- ################ Staging Environment [stage]################ -->
+		<profile>
+			<id>stage</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.6.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>log/*.log</include>
+										<include>target/**/*</include>
+										<include>screenshot/**/*</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<echo>Using env.stage.properties</echo>
+										<delete file="${project.basedir}\config\env.properties" />
+										<copy file="${project.basedir}\config\env.stage.properties"
+											tofile="${project.basedir}\config\env.properties" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<environmentVariables>
+								<maven.project.basedir>${project.basedir}</maven.project.basedir>
+							</environmentVariables>
+							<!-- Suite file injection parameter from command line -->
+							<suiteXmlFiles>
+								<suiteXmlFile>${suiteFile}</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- ################ Testing Environment [test]################ -->
+		<profile>
+			<id>test</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.6.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>log/*.log</include>
+										<include>target/**/*</include>
+										<include>screenshot/**/*</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<echo>Using env.test.properties</echo>
+										<delete file="${project.basedir}\config\env.properties" />
+										<copy file="${project.basedir}\config\env.test.properties"
+											tofile="${project.basedir}\config\env.properties" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<environmentVariables>
+								<maven.project.basedir>${project.basedir}</maven.project.basedir>
+							</environmentVariables>
+							<!-- Suite file injection parameter from command line -->
+							<suiteXmlFiles>
+								<suiteXmlFile>${suiteFile}</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- ################ Production Environment [prod]################ -->
+		<profile>
+			<id>prod</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>prod</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.6.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>log/*.log</include>
+										<include>target/**/*</include>
+										<include>screenshot/**/*</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<echo>Using env.prod.properties</echo>
+										<delete file="${project.basedir}\config\env.properties" />
+										<copy file="${project.basedir}\config\env.prod.properties"
+											tofile="${project.basedir}\config\env.properties" />
+									</tasks>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<environmentVariables>
+								<maven.project.basedir>${project.basedir}</maven.project.basedir>
+							</environmentVariables>
+							<!-- Suite file injection parameter from command line -->
+							<suiteXmlFiles>
+								<suiteXmlFile>${suiteFile}</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>2.44.0</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>2.44.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.44.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.21</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.detro</groupId>
+			<artifactId>phantomjsdriver</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+	</dependencies>
+
+
+
+	<properties>
+
+		<src.dir>src/main/java</src.dir>
+
+		<!-- Maven Compiler -->
+		<maven.compiler.source>1.5</maven.compiler.source>
+		<maven.compiler.target>1.5</maven.compiler.target>
+
+		<!-- Default suites -->
+		<sanitySuiteFile>${project.basedir}/test_suites/sanity_testcases.xml</sanitySuiteFile>
+		<regressionSuiteFile>${project.basedir}/test_suites/regression_testcases.xml</regressionSuiteFile>
+
+		<!-- Default suite files if not being specified from mvn command line -->
+		<defaultSuiteFiles>${sanitySuiteFile}</defaultSuiteFiles>
+		<suiteFile>${defaultSuiteFiles}</suiteFile>
+
+
+	</properties>
+
+
+	<url>https://github.com/shirishk/synerzip-selenium-framework</url>
+	<organization>
+		<name>synerzip Infotech India Pvt. ltd.</name>
+		<url>http://synerzip.com/</url>
+	</organization>
+	<ciManagement>
+		<system>Travis CI</system>
+	</ciManagement>
 </project>
