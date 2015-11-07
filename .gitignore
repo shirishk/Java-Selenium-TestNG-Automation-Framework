@@ -4,3 +4,5 @@ target/*
 target
 screenshot
 screenshot/*
+.idea/*
+*.iml
