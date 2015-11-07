@@ -1,0 +1,134 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex f91aad4..da23cf6 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -3,4 +3,5 @@[m [mlog[m
+ target/*[m
+ target[m
+ screenshot[m
+[31m-screenshot/*[m
+\ No newline at end of file[m
+[32m+[m[32mscreenshot/*[m
+[32m+[m[32mtest-output[m
+\ No newline at end of file[m
+[1mdiff --git a/config/env.properties b/config/env.properties[m
+[1mdeleted file mode 100644[m
+[1mindex 0c89e1c..0000000[m
+[1m--- a/config/env.properties[m
+[1m+++ /dev/null[m
+[36m@@ -1,10 +0,0 @@[m
+[31m-## Dev Environment details[m
+[31m-base.url =https://www.google.co.in[m
+[31m-[m
+[31m-## TestCase_1 Test data[m
+[31m-TestCase_1.searchString_1 = development environment[m
+[31m-[m
+[31m-## TestCase_1 Assertion strings [m
+[31m-TestCase_1.assertString_1 = development environment[m
+[31m-[m
+[31m-Environment=local[m
+[1mdiff --git a/test-output/Default suite/Default test.html b/test-output/Default suite/Default test.html[m
+[1mindex d5237c7..661789f 100644[m
+[1m--- a/test-output/Default suite/Default test.html[m	
+[1m+++ b/test-output/Default suite/Default test.html[m	
+[36m@@ -55,11 +55,11 @@[m [mfunction toggleAllBoxes() {[m
+ <body>[m
+ <h2 align='center'>Default test</h2><table border='1' align="center">[m
+ <tr>[m
+[31m-<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>[m
+[32m+[m[32m<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>[m
+ </tr><tr>[m
+[31m-<td>Started on:</td><td>Sat Nov 07 17:27:28 IST 2015</td>[m
+[32m+[m[32m<td>Started on:</td><td>Sat Nov 07 17:58:12 IST 2015</td>[m
+ </tr>[m
+[31m-<tr><td>Total time:</td><td>28 seconds (28912 ms)</td>[m
+[32m+[m[32m<tr><td>Total time:</td><td>5 seconds (5013 ms)</td>[m
+ </tr><tr>[m
+ <td>Included groups:</td><td></td>[m
+ </tr><tr>[m
+[36m@@ -67,6 +67,78 @@[m [mfunction toggleAllBoxes() {[m
+ </tr>[m
+ </table><p/>[m
+ <small><i>(Hover the method name to see the test class name)</i></small><p/>[m
+[32m+[m[32m<table width='100%' border='1' class='invocation-failed'>[m
+[32m+[m[32m<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>[m
+[32m+[m[32m<tr><td><b>Test method</b></td>[m
+[32m+[m[32m<td width="30%"><b>Exception</b></td>[m
+[32m+[m[32m<td width="10%"><b>Time (seconds)</b></td>[m
+[32m+[m[32m<td><b>Instance</b></td>[m
+[32m+[m[32m</tr>[m
+[32m+[m[32m<tr>[m
+[32m+[m[32m<td title='sanitySuite.TestCase_1_GoogleSearch.open_url()'><b>open_url</b><br>Test class: sanitySuite.TestCase_1_GoogleSearch<br>Test method: Open Google Search URL</td>[m
+[32m+[m[32m<td><div><pre>java.lang.AssertionError: null[m
+[32m+[m	[32mat org.testng.Assert.fail(Assert.java:94)[m
+[32m+[m	[32mat org.testng.Assert.fail(Assert.java:101)[m
+[32m+[m	[32mat base.TestBase.assertStrings(TestBase.java:243)[m
+[32m+[m	[32mat sanitySuite.TestCase_1_GoogleSearch.open_url(TestCase_1_GoogleSearch.java:26)[m
+[32m+[m	[32mat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[m
+[32m+[m	[32mat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[m
+[32m+[m	[32mat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[m
+[32m+[m	[32mat java.lang.reflect.Method.invoke(Method.java:497)[m
+[32m+[m	[32mat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)[m
+[32m+[m	[32mat org.testng.internal.Invoker.invokeMethod(Invoker.java:696)[m
+[32m+[m	[32mat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)[m
+[32m+[m	[32mat org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)[m
+[32m+[m	[32mat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)[m
+[32m+[m	[32mat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)[m
+[32m+[m	[32mat org.testng.TestRunner.privateRun(TestRunner.java:767)[m
+[32m+[m	[32mat org.testng.TestRunner.run(TestRunner.java:617)[m
+[32m+[m	[32mat org.testng.SuiteRunner.runTest(SuiteRunner.java:348)[m
+[32m+[m	[32mat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)[m
+[32m+[m	[32mat org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)[m
+[32m+[m	[32mat org.testng.SuiteRunner.run(SuiteRunner.java:254)[m
+[32m+[m	[32mat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)[m
+[32m+[m	[32mat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)[m
+[32m+[m	[32mat org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)[m
+[32m+[m	[32mat org.testng.TestNG.runSuitesLocally(TestNG.java:1149)[m
+[32m+[m	[32mat org.testng.TestNG.run(TestNG.java:1057)[m
+[32m+[m	[32mat org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)[m
+[32m+[m	[32mat org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)[m
+[32m+[m	[32mat org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)[m
+[32m+[m[32m</pre></div><a href='#' onClick='toggleBox("stack-trace777457133", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>[m
+[32m+[m[32m<div class='stack-trace' id='stack-trace777457133'><pre>java.lang.AssertionError: null[m
+[32m+[m	[32mat org.testng.Assert.fail(Assert.java:94)[m
+[32m+[m	[32mat org.testng.Assert.fail(Assert.java:101)[m
+[32m+[m	[32mat base.TestBase.assertStrings(TestBase.java:243)[m
+[32m+[m	[32mat sanitySuite.TestCase_1_GoogleSearch.open_url(TestCase_1_GoogleSearch.java:26)[m
+[32m+[m	[32mat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[m
+[32m+[m	[32mat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[m
+[32m+[m	[32mat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[m
+[32m+[m	[32mat java.lang.reflect.Method.invoke(Method.java:497)[m
+[32m+[m	[32mat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)[m
+[32m+[m	[32mat org.testng.internal.Invoker.invokeMethod(Invoker.java:696)[m
+[32m+[m	[32mat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)[m
+[32m+[m	[32mat org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)[m
+[32m+[m	[32mat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)[m
+[32m+[m	[32mat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)[m
+[32m+[m	[32mat org.testng.TestRunner.privateRun(TestRunner.java:767)[m
+[32m+[m	[32mat org.testng.TestRunner.run(TestRunner.java:617)[m
+[32m+[m	[32mat org.testng.SuiteRunner.runTest(SuiteRunner.java:348)[m
+[32m+[m	[32mat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)[m
+[32m+[m	[32mat org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)[m
+[32m+[m	[32mat org.testng.SuiteRunner.run(SuiteRunner.java:254)[m
+[32m+[m	[32mat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)[m
+[32m+[m	[32mat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)[m
+[32m+[m	[32mat org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)[m
+[32m+[m	[32mat org.testng.TestNG.runSuitesLocally(TestNG.java:1149)[m
+[32m+[m	[32mat org.testng.TestNG.run(TestNG.java:1057)[m
+[32m+[m	[32mat org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)[m
+[32m+[m	[32mat org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)[m
+[32m+[m	[32mat org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)[m
+[32m+[m[32m</pre></div></td>[m
+[32m+[m[32m<td>2</td>[m
+[32m+[m[32m<td>sanitySuite.TestCase_1_GoogleSearch@3cce5371</td></tr>[m
+[32m+[m[32m</table><p>[m
+ <table width='100%' border='1' class='invocation-passed'>[m
+ <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>[m
+ <tr><td><b>Test method</b></td>[m
+[36m@@ -77,13 +149,8 @@[m [mfunction toggleAllBoxes() {[m
+ <tr>[m
+ <td title='sanitySuite.TestCase_1_GoogleSearch.click_first_search_option()'><b>click_first_search_option</b><br>Test class: sanitySuite.TestCase_1_GoogleSearch<br>Test method: Click on first search option</td>[m
+ <td></td>[m
+[31m-<td>0</td>[m
+[31m-<td>sanitySuite.TestCase_1_GoogleSearch@52350abb</td></tr>[m
+[31m-<tr>
