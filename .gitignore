@@ -5,3 +5,8 @@ target
 screenshot
 screenshot/*
 test-output
+.project
+.classpath
+*.iml
+libraries
+libraries/*

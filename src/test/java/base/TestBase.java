@@ -1,25 +1,13 @@
 package base;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -28,6 +16,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
 
 
 
@@ -54,7 +51,8 @@ public abstract class TestBase {
 	 */
 	private static void initLogs(){
 		if (log == null){
-			// Initialize Log4j logs 
+			// Initialize Log4j logs
+
 			DOMConfigurator.configure(System.getProperty("user.dir")+File.separator+"config"+File.separator+"log4j.xml");
 			log = Logger.getLogger("MyLogger");
 			log.info("Logger is initialized..");
@@ -146,7 +144,8 @@ public abstract class TestBase {
 			log.info(config.getProperty("browser")+" driver is initialized..");
 		}else if (config.getProperty("browser").equalsIgnoreCase("htmlunit")) {
 			// http://sourceforge.net/projects/htmlunit/files/htmlunit/
-			driver = new HtmlUnitDriver(true);
+			driver = new HtmlUnitDriver();
+//			driver = new HtmlUnitDriver(true);
 			log.info(config.getProperty("browser")+" driver is initialized..");
 		} else if(config.getProperty("browser").equalsIgnoreCase("phantomjs")||config.getProperty("browser").equalsIgnoreCase("PHANTOMJS")) {
 			// Requires Phantomjs to be installed and available on PATH
@@ -253,7 +252,7 @@ public abstract class TestBase {
 
 		driver.quit();
 		driver = null;
-		log.debug("Closing Browser.");
+		log.info("Closing Browser.");
 
 	}
 

@@ -44,10 +44,13 @@
 								</goals>
 								<configuration>
 									<target>
-										<echo>Using env.dev.properties</echo>
-										<delete file="${project.basedir}\config\env.properties" />
-										<copy file="${project.basedir}\config\env.dev.properties"
-											tofile="${project.basedir}\config\env.properties" />
+										<echo>Dev Environment</echo>
+										<delete file="${project.basedir}\config\config.properties" />
+										<delete file="${project.basedir}\config\data.properties" />
+										<copy file="${project.basedir}\config\config_dev.properties"
+											tofile="${project.basedir}\config\config.properties" />
+										<copy file="${project.basedir}\config\data_dev.properties"
+											  tofile="${project.basedir}\config\data.properties" />
 									</target>
 								</configuration>
 							</execution>
@@ -106,10 +109,13 @@
 								</goals>
 								<configuration>
 									<target>
-										<echo>Using env.local.properties</echo>
-										<delete file="${project.basedir}\config\env.properties" />
-										<copy file="${project.basedir}\config\env.local.properties"
-											tofile="${project.basedir}\config\env.properties" />
+										<echo>Local Environment</echo>
+										<delete file="${project.basedir}\config\config.properties" />
+										<delete file="${project.basedir}\config\data.properties" />
+										<copy file="${project.basedir}\config\config_local.properties"
+											  tofile="${project.basedir}\config\config.properties" />
+										<copy file="${project.basedir}\config\data_local.properties"
+											  tofile="${project.basedir}\config\data.properties" />
 									</target>
 								</configuration>
 							</execution>
@@ -168,10 +174,13 @@
 								</goals>
 								<configuration>
 									<target>
-										<echo>Using env.stage.properties</echo>
-										<delete file="${project.basedir}\config\env.properties" />
-										<copy file="${project.basedir}\config\env.stage.properties"
-											tofile="${project.basedir}\config\env.properties" />
+										<echo>Staging Environment</echo>
+										<delete file="${project.basedir}\config\config.properties" />
+										<delete file="${project.basedir}\config\data.properties" />
+										<copy file="${project.basedir}\config\config_stage.properties"
+											  tofile="${project.basedir}\config\config.properties" />
+										<copy file="${project.basedir}\config\data_stage.properties"
+											  tofile="${project.basedir}\config\data.properties" />
 									</target>
 								</configuration>
 							</execution>
@@ -230,10 +239,13 @@
 								</goals>
 								<configuration>
 									<target>
-										<echo>Using env.test.properties</echo>
-										<delete file="${project.basedir}\config\env.properties" />
-										<copy file="${project.basedir}\config\env.test.properties"
-											tofile="${project.basedir}\config\env.properties" />
+										<echo>QA Environment</echo>
+										<delete file="${project.basedir}\config\config.properties" />
+										<delete file="${project.basedir}\config\data.properties" />
+										<copy file="${project.basedir}\config\config_qa.properties"
+											  tofile="${project.basedir}\config\config.properties" />
+										<copy file="${project.basedir}\config\data_qa.properties"
+											  tofile="${project.basedir}\config\data.properties" />
 									</target>
 								</configuration>
 							</execution>
@@ -298,10 +310,13 @@
 								</goals>
 								<configuration>
 									<tasks>
-										<echo>Using env.prod.properties</echo>
-										<delete file="${project.basedir}\config\env.properties" />
-										<copy file="${project.basedir}\config\env.prod.properties"
-											tofile="${project.basedir}\config\env.properties" />
+										<echo>Production Environment</echo>
+										<delete file="${project.basedir}\config\config.properties" />
+										<delete file="${project.basedir}\config\data.properties" />
+										<copy file="${project.basedir}\config\config_prod.properties"
+											  tofile="${project.basedir}\config\config.properties" />
+										<copy file="${project.basedir}\config\data_prod.properties"
+											  tofile="${project.basedir}\config\data.properties" />
 									</tasks>
 								</configuration>
 							</execution>
@@ -363,6 +378,12 @@
 			<artifactId>phantomjsdriver</artifactId>
 			<version>1.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.htmlunit</groupId>
+			<artifactId>htmlunit</artifactId>
+			<version>2.19</version>
+		</dependency>
+
 	</dependencies>
 
 

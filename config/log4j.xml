@@ -1,44 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<log4j:configuration debug="true"
-  xmlns:log4j='http://jakarta.apache.org/log4j/'>
-  
-<!-- Log4j logger configuration file create by Shirish Kawatkar -->
+<log4j:configuration debug="false" xmlns:log4j='http://jakarta.apache.org/log4j/'>
 
-<!-- Appenders -->
+	<!-- Appenders -->
 
-<!-- Log in into console -->
+	<!-- Log in into console -->
 
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
-	    <layout class="org.apache.log4j.PatternLayout">
-		<param name="ConversionPattern" 
-			value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
-	    </layout>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				   value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+		</layout>
 	</appender>
 
-<!-- Log in into file -->
+	<!-- Log in into file -->
 
 	<appender name="file" class="org.apache.log4j.RollingFileAppender">
-	    <param name="append" value="true" />
-	    <param name="maxFileSize" value="10MB" />
-	    <param name="maxBackupIndex" value="10" />
-	    <param name="file" value= "./log/Automation_Execution.log" />
-	    <layout class="org.apache.log4j.PatternLayout">
-		<param name="ConversionPattern" 
-			value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
-	    </layout>
+		<param name="append" value="true" />
+		<param name="maxFileSize" value="10MB" />
+		<param name="maxBackupIndex" value="10" />
+		<param name="file" value= "./logs/Automation_Execution.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				   value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+		</layout>
+
 	</appender>
 
-<!-- Root logger -->
+	<!-- Application Loggers -->
+	<logger name="SynerzipTestAutomation">
+		<level value="info" />
+	</logger>
+
+	<!-- Root logger -->
 	<root>
 		<level value="INFO" />
 		<appender-ref ref="console" />
 		<appender-ref ref="file" />
 	</root>
 
-<!-- Application Loggers -->
-<logger name="SynerzipTestAutomation">
-    <level value="info" />
-</logger>
+	<!--logger Order-->
+	<!--<renderer></renderer>
+	<appender></appender>
+	<plugin></plugin>
+	<logger></logger>
+	<category></category>
+	<root></root>
+	<loggerfactory></loggerfactory>
+	<categoryfactory></categoryfactory>-->
+
 
 </log4j:configuration>
