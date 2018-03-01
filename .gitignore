@@ -1,11 +1,12 @@
 log/*.log
-log
+logs
 target/*
 target
 screenshot
 screenshot/*
 test-output
 .project
+.idea
 .classpath
 *.iml
 libraries
