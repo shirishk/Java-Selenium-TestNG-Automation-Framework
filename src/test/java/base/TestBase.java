@@ -66,27 +66,28 @@ public abstract class TestBase {
 		if (config == null) {
 			try {
 				//initialize env properties file
-				env = new Properties();
-				String fileName = "env"+".properties";;
-				ip = new FileInputStream(System.getProperty("user.dir")+ File.separator + "config" + File.separator+ fileName);
-				env.load(ip);
-				log.info("Environment = "+ env.getProperty("Environment"));
+//				env = new Properties();
+//				String fileName = "env"+".properties";;
+//				String fileName = "env"+".properties";
+//				ip = new FileInputStream(System.getProperty("user.dir")+ File.separator + "config" + File.separator+ fileName);
+//				env.load(ip);
+//				log.info("Environment = "+ env.getProperty("Environment"));
 
 				//initialize config properties file
 				config = new Properties();
-				fileName = "config_" + env.getProperty("Environment")+ ".properties";
-				String path = System.getProperty("user.dir") + File.separator+ "config" + File.separator + fileName;
-				ip = new FileInputStream(path);
-				config.load(ip);
-				log.info("Config file initialized for environment = "+ env.getProperty("Environment"));
+				String config_fileName = "config.properties";
+				String config_path = System.getProperty("user.dir") + File.separator+ "config" + File.separator + config_fileName;
+				FileInputStream config_ip = new FileInputStream(config_path);
+				config.load(config_ip);
+//				log.info("Config file initialized for environment = "+ env.getProperty("Environment"));
 
 				//initialize data properties file
 				data = new Properties();
-				fileName = "data_" + env.getProperty("Environment")+ ".properties";
-				path = System.getProperty("user.dir") + File.separator+ "config" + File.separator + fileName;
-				ip = new FileInputStream(path);
-				data.load(ip);
-				log.info("Data file initialized for environment = "+ env.getProperty("Environment"));
+				String data_fileName = "data.properties";
+				String data_path = System.getProperty("user.dir") + File.separator+ "config" + File.separator + data_fileName;
+				FileInputStream data_ip = new FileInputStream(data_path);
+				data.load(data_ip);
+//				log.info("Data file initialized for environment = "+ env.getProperty("Environment"));
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -111,7 +112,6 @@ public abstract class TestBase {
 		dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,UnexpectedAlertBehaviour.ACCEPT);
 		dc.setCapability(FirefoxDriver.PROFILE, profile);
 
-		profile.setEnableNativeEvents(true);
 		profile.setPreference("browser.download.folderList", 2);
 		profile.setPreference("browser.download.manager.showWhenStarting", false);
 		profile.setPreference("browser.download.dir", System.getProperty("user.dir")+ File.separator +"Download");
@@ -134,14 +134,15 @@ public abstract class TestBase {
 		}
 		else if (config.getProperty("browser").equals("GoogleChrome")||config.getProperty("browser").equalsIgnoreCase("CHROME")){
 
-			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ File.separator +"drivers"+ File.separator +"chromedriver.exe");
+//			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ File.separator +"drivers"+ File.separator +"chromedriver.exe");
 			// To remove message "You are using an unsupported command-line flag: --ignore-certificate-errors.
 			// Stability and security will suffer."
 			// Add an argument 'test-type'
 			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("test-type");
-			capabilities.setCapability("chrome.binary",System.getProperty("user.dir")+ File.separator +"drivers"+ File.separator +"chromedriver.exe");
+//			options.addArguments("--headless"); // Enable for headless option
+//			capabilities.setCapability("chrome.binary",System.getProperty("user.dir")+ File.separator +"drivers"+ File.separator +"chromedriver.exe");
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			driver = new ChromeDriver(capabilities);
 			log.info(config.getProperty("browser")+" driver is initialized..");
@@ -162,9 +163,7 @@ public abstract class TestBase {
 		driver.manage().window().setPosition(new Point(0, 0));
 		driver.manage().window().maximize();
 
-
 		//Explicit Wait + Expected Conditions
-
 		wait=new WebDriverWait(driver, 120);
 	}
 	

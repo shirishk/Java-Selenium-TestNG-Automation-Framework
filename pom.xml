@@ -204,9 +204,9 @@
 			</build>
 		</profile>
 
-		<!-- ################ Testing Environment [test]################ -->
+		<!-- ################ Testing Environment [QA]################ -->
 		<profile>
-			<id>test</id>
+			<id>qa</id>
 			<build>
 				<plugins>
 					<plugin>
