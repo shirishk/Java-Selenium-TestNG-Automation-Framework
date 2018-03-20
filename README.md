@@ -16,7 +16,7 @@ Prerequisites:
 
 Environment:
 ---------------
-* 	There are 5 different environment configuration set up [dev, local, stage, test and prod]
+* 	There are 5 different environment configuration set up [dev, local, qa, stage, and prod]
 *	Use -P[environment_id] to copy the respective properties file to //config/env.properties 
 
 Execution:
