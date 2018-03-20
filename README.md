@@ -26,7 +26,7 @@ Execution:
 *	To run on local environment use command ....\.\Java-Selenium-TestNG-Automation-Framework> mvn clean test -Pdev
 
 <p><a href="https://github.com/shirishk/Java-Selenium-TestNG-Automation-Framework/wiki/Logging"><h2>Logging:</h2></a></p>
----------------
+
 *	log4j configured to capture the test execution logs
 *	Configuration file is located at //config/log4j.xml
 *	Execution log is captured in the //log/Automation_Execution.log
