@@ -23,7 +23,7 @@ Execution:
 ---------------
 *	Clone the repository.
 *	Open command prompt and go to web-test directory.
-*	To run on local environment use command ....\.\web-test> mvn clean test -Plocal 
+*	To run on local environment use command ....\.\Java-Selenium-TestNG-Automation-Framework> mvn clean test -Pdev
 
 Logging:
 ---------------
