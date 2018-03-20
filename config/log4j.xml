@@ -28,7 +28,7 @@
 	</appender>
 
 	<!-- Application Loggers -->
-	<logger name="SynerzipTestAutomation">
+	<logger name="ShirishkTestAutomation">
 		<level value="info" />
 	</logger>
 
