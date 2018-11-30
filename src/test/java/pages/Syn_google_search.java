@@ -28,7 +28,7 @@ public class Syn_google_search extends PageBase {
 	WebElement searchBox;
 	
 	// Web Element for Google Search first option
-	@FindBy(xpath = "//*[@id='sbse0']/div[2]")
+	@FindBy(xpath = "//*[@id='tsf']/div[2]/div/div[2]/div[2]/ul/li[1]/div[1]/div/span")
 	WebElement searchFirstOption;
 
 	/*******************************************************************************************
