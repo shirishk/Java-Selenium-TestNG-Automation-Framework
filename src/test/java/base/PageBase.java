@@ -4,7 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;;
 
 
 public abstract class PageBase {
