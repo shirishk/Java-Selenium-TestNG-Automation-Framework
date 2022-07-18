@@ -9,9 +9,7 @@ import org.apache.log4j.Logger;;
 
 public abstract class PageBase {
 
-	/**
-	 * The Driver.THIS IS SECOND BRANCH
-	 */
+	//this is secind
 	protected WebDriver driver = null;
 	public Logger log = TestBase.log;
 
